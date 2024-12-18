@@ -11,6 +11,11 @@ data "aws_ami" "amazon-linux-2" {
     name   = "name"
     values = ["amzn2-ami-hvm*"]
   }
+  # add owner-id filter to remove CLI warning.
+  filter {
+    name = "owner-id"
+    values = ["137112412989"]
+  }
 }
 
 # The instances represent the web app servers
