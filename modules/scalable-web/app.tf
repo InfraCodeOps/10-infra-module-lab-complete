@@ -3,6 +3,7 @@
 # in the current region.
 data "aws_ami" "amazon-linux-2" {
   most_recent = true
+  owners = ["137112412989"]  # Amazon's official AWS account ID (removes CLI warning)
   filter {
     name   = "owner-alias"
     values = ["amazon"]
@@ -10,11 +11,6 @@ data "aws_ami" "amazon-linux-2" {
   filter {
     name   = "name"
     values = ["amzn2-ami-hvm*"]
-  }
-  # add owner-id filter to remove CLI warning.
-  filter {
-    name = "owner-id"
-    values = ["137112412989"]
   }
 }
 
